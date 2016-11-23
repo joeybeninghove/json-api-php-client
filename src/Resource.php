@@ -35,7 +35,8 @@ class Resource
     {
         $resource = new static();
         $resource->attributes = $attributes;
-        $response = HTTP::post($resource);
+        $http = new Http();
+        $response = $http->post($resource);
         $json = json_decode($response->getBody(), true);
 
         return static::loadOne($json);
@@ -44,7 +45,8 @@ class Resource
     public static function getAll()
     {
         $resource = new static();
-        $response = HTTP::get($resource);
+        $http = new Http();
+        $response = $http->get($resource);
         $json = json_decode($response->getBody(), true);
 
         return static::loadAll($json);
@@ -54,7 +56,8 @@ class Resource
     {
         $resource = new static();
         $resource->id = $id;
-        $response = HTTP::get($resource);
+        $http = new Http();
+        $response = $http->get($resource);
         $json = json_decode($response->getBody(), true);
 
         return static::loadOne($json);
@@ -65,7 +68,8 @@ class Resource
         $resource = new static();
         $resource->id = $id;
         $resource->attributes = $attributes;
-        $response = HTTP::patch($resource);
+        $http = new Http();
+        $response = $http->patch($resource);
         $json = json_decode($response->getBody(), true);
 
         return static::loadOne($json);
@@ -75,7 +79,8 @@ class Resource
     {
         $resource = new static();
         $resource->id = $id;
-        HTTP::delete($resource);
+        $http = new Http();
+        $http->delete($resource);
     }
 
     public static function loadOne($json)

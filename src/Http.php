@@ -19,19 +19,19 @@ class HTTP
     public function post($resource)
     {
         $options = $this->options("POST", $resource);
-        return $this->request("POST", Url::create($resource));
+        return $this->request("POST", Url::create($resource), $options);
     }
 
     public function patch($resource)
     {
         $options = $this->options("PATCH", $resource);
-        return $this->request("PATCH", Url::update($resource));
+        return $this->request("PATCH", Url::update($resource), $options);
     }
 
     public function delete($resource)
     {
         $options = $this->options("DELETE", $resource);
-        return $this->request("DELETE", Url::delete($resource));
+        return $this->request("DELETE", Url::delete($resource), $options);
     }
 
     public function get($resource)
