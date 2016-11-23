@@ -2,29 +2,55 @@
 
 namespace JsonApiClient;
 
+use GuzzleHttp\Client;
+
 class HTTP
 {
-    public static function post($resource)
+    public $client;
+
+    public function __construct($client=null)
     {
-        return self::request("POST", $resource);
+        if ($client)
+            $this->client = $client;
+        else
+            $this->client = new Client();
     }
 
-    public static function patch($resource)
+    public function post($resource)
     {
-        return self::request("PATCH", $resource);
+        $options = $this->options("POST", $resource);
+        return $this->request("POST", Url::create($resource));
     }
 
-    public static function get($resource)
+    public function patch($resource)
     {
-        return self::request("GET", $resource);
+        $options = $this->options("PATCH", $resource);
+        return $this->request("PATCH", Url::update($resource));
     }
 
-    public static function delete($resource)
+    public function delete($resource)
     {
-        return self::request("DELETE", $resource);
+        $options = $this->options("DELETE", $resource);
+        return $this->request("DELETE", Url::delete($resource));
     }
 
-    public static function request($method, $resource)
+    public function get($resource)
+    {
+        $options = $this->options("GET", $resource);
+        if ($resource->hasId())
+            return $this->request("GET", Url::getOne($resource), $options);
+        else
+            return $this->request("GET", Url::getAll($resource), $options);
+    }
+
+    public function request($method, $url, $options=[])
+    {
+        $request = $this->client->createRequest($method, $url, $options);
+
+        return $this->client->send($request);
+    }
+
+    public function options($method, $resource)
     {
         $class = get_class($resource);
         $options = [
@@ -36,25 +62,13 @@ class HTTP
 
         switch ($method) {
         case "POST":
-            $url = Url::create($resource);
             $options["headers"]["Content-Type"] = "application/vnd.api+json";
             $options["json"] = $resource->toArray();
         case "PATCH":
-            $url = Url::update($resource);
             $options["headers"]["Content-Type"] = "application/vnd.api+json";
             $options["json"] = $resource->toArray();
-        case "GET":
-            if ($resource->id)
-                $url = Url::getOne($resource);
-            else
-                $url = Url::getAll($resource);
-        case "DELETE":
-            $url = Url::delete($resource);
         }
 
-        $client = new \GuzzleHttp\Client();
-        $response = $client->request($method, $url, $options);
-
-        return $response;
+        return $options;
     }
 }

@@ -1,6 +1,6 @@
 # JsonApiClient
 
-This library aims to be a resource-based JSON API client for PHP that adheres to the offical [JSON API 1.0 spec](http://jsonapi.org).
+This library is an opinionated, resource-based JSON API client for PHP that strives to adhere to the offical [JSON API 1.0 spec](http://jsonapi.org).
 
 ## Requirements
 

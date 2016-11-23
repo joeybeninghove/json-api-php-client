@@ -20,6 +20,11 @@ class Resource
         $this->type = $type;
     }
 
+    public function hasId()
+    {
+        return !empty($this->id);
+    }
+
     public static function auth($username, $password="")
     {
         static::$username = $username;
