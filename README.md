@@ -13,7 +13,7 @@ You can install it via [Composer](https://getcomposer.org).  Run the following
 command:
 
 ```bash
-composer require joeybeninghove/json-api-php-client
+composer require cloudswipe/json-api-php-client
 ```
 
 To use the bindings, use Composer's [autoload](https://getcomposer.org/doc/00-intro.md#autoloading):
