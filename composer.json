@@ -1,6 +1,8 @@
 {
     "name": "joeybeninghove/json-api-client",
-    "description": "JSON API Client adhering to the JSON API 1.0 spec",
+    "type": "library",
+    "description": "JSON API Client for PHP adhering to the JSON API 1.0 spec",
+    "keywords": ["json", "api", "client"],
     "license": "MIT",
     "authors": [
         {
