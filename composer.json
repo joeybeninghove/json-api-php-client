@@ -1,5 +1,5 @@
 {
-    "name": "joeybeninghove/json-api-php-client",
+    "name": "cloudswipe/json-api-php-client",
     "type": "library",
     "description": "JSON API Client for PHP adhering to the JSON API 1.0 spec",
     "keywords": ["json", "api", "client"],
