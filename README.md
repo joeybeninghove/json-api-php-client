@@ -77,7 +77,7 @@ class Invoice extends Base
 }
 
 Base::setApiKey("some secret key");
-$invoice = Invoice::getAll();
+$invoices = Invoice::getAll();
 ```
 
 ### Create a resource
