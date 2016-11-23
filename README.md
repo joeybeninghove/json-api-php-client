@@ -57,7 +57,7 @@ of using a base class to abstract that away.
 ```php
 class Base extends Resource
 {
-    public function __construct($type, $url)
+    public function __construct($url, $type)
     {
         parent::__construct("http://api.site.come/v1/", $url, $type);
     }
@@ -72,7 +72,7 @@ class Invoice extends Base
 {
     public function __construct()
     {
-        parent::__construct("invoice", "invoices");
+        parent::__construct("invoices", "invoice");
     }
 }
 
