@@ -4,7 +4,7 @@ namespace JsonApiClient;
 
 use GuzzleHttp\Client;
 
-class HTTP
+class Http
 {
     public $client;
 
