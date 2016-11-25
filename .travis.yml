@@ -1,15 +1,14 @@
 language: php
- 
 php:
-  - 5.4
-  - 5.5
-  - 5.6
-  - 7.0
-
+- 5.4
+- 5.5
+- 5.6
+- 7.0
 sudo: false
- 
 before_script:
-  - composer self-update
-  - composer install --prefer-source --no-interaction --dev
- 
+- composer self-update
+- composer install --prefer-source --no-interaction --dev
 script: vendor/bin/phpunit
+notifications:
+  slack:
+    secure: Dejrl9LeKh4yggUBXBzelSkWX4dB6hJ8ZjZGKZc1xCGlDw9pfq2OkpYHsj8wjLgmv4MUIY0BvmZQNEKd9MHQUKLoHeGfbtw//Kug/RIxqDCuNmnnSrseW0A0baJUEFlA38nUHb5AYbRPf5kuj6qp8N3XSBkw1Vu3lzVfXqYFe2anTcFJVRDJPx6GsWlBq+Sc9QWLhHeZjr/cA6WgCYx8fSxofxYPm5mm8hPTQIe1rPMKf42FFlPV4XgGs3FXM/LmHyQEcK0n4yvAFAazDvyXjPddObA42MX37AYhc2uNueBkRRWnRHC7YVturESnG4k4IUMrFFVqqM5vWCSTC+pt232Y6pkqNpvG8oFrFn1IKrcml7IMQpM2LRBWC2d56J3/5dbN0nGp2qvd1uTT01PWlKzOS8fo+iiy9exc908/nOjqeydZ4gwwlxUfQDklOvD3JhCPprhx04d44BOuETJjBPxOS5JVk81dEn14oXhv6cv4glXOtWnTireLiyn4468fd6gwVq3jLv1XGx3L1tSQ315aoENbWWa88vcm2CcR3hCcguqyDhsGG2GRhbisewZ4cSioN48ffWS+WlJ1MS+nvNvuz49t4z6ghaoj4La67fuucijHoM93YrqwM9aTAbx3CAncBNPbzjyxRys/OYX+n/caEUz7dEZUuLVtRDaxwAw=
