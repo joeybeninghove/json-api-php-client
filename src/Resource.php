@@ -13,10 +13,10 @@ class Resource
     public static $username;
     public static $password;
 
-    public function __construct($baseUrl, $url, $type)
+    public function __construct($baseUrl, $type)
     {
         $this->baseUrl = $baseUrl;
-        $this->url = $url;
+        $this->url = $type;
         $this->type = $type;
     }
 
