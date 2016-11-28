@@ -9,6 +9,7 @@ class Resource
     public $baseUrl;
     public $url;
     public $attributes = [];
+    public $links = [];
 
     public static $username;
     public static $password;
@@ -89,6 +90,7 @@ class Resource
         $resource->id = $json["data"]["id"];
         $resource->type = $json["data"]["type"];
         $resource->attributes = $json["data"]["attributes"];
+        $resource->links = $json["links"];
         return $resource;
     }
 
@@ -100,6 +102,7 @@ class Resource
             $resource->id = $data["id"];
             $resource->type = $data["type"];
             $resource->attributes = $data["attributes"];
+            $resource->links = $data["links"];
             $resources[] = $resource;
         }
         return $resources;
