@@ -6,7 +6,7 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
 {
     public function testHasId()
     {
-        $resource = new Resource("foo", "bar", "baz");
+        $resource = new Resource("foo", "bar");
         $this->assertFalse($resource->hasId());
 
         $resource->id = null;

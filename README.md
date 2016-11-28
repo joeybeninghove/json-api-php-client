@@ -38,8 +38,7 @@ class Invoice extends Resource
     {
         parent::__construct(
             "https://api.site.com/v1/", // base URL
-            "invoices", // resource URL
-            "invoice" // type
+            "invoices" // type
         )
     }
 }
@@ -57,9 +56,9 @@ of using a base class to abstract that away.
 ```php
 class Base extends Resource
 {
-    public function __construct($url, $type)
+    public function __construct($type)
     {
-        parent::__construct("http://api.site.come/v1/", $url, $type);
+        parent::__construct("http://api.site.come/v1/", $type);
     }
 
     public static function setApiKey($apiKey)
@@ -72,7 +71,7 @@ class Invoice extends Base
 {
     public function __construct()
     {
-        parent::__construct("invoices", "invoice");
+        parent::__construct("invoices");
     }
 }
 
